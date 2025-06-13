@@ -1,2 +1,0 @@
-# blog-log
-Personal blog
