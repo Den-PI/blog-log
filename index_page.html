@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Здравословен живот - Начало</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #e3f2fd 100%);
+            min-height: 100vh;
+            color: #2d4a3d;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(-10px);
+            }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #2d5a3d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            color: #4a7c59;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #6a8f73;
+            font-style: italic;
+        }
+
+        .navigation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .nav-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-decoration: none;
+            color: #2d4a3d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(129, 199, 132, 0.1) 0%, rgba(100, 181, 246, 0.1) 100%);
+            transition: left 0.4s ease;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 2px solid #81c784;
+        }
+
+        .nav-card:hover::before {
+            left: 0;
+        }
+
+        .nav-card:nth-child(1) {
+            animation: cardSlide 0.6s ease-out 0.2s both;
+        }
+
+        .nav-card:nth-child(2) {
+            animation: cardSlide 0.6s ease-out 0.4s both;
+        }
+
+        .nav-card:nth-child(3) {
+            animation: cardSlide 0.6s ease-out 0.6s both;
+        }
+
+        @keyframes cardSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .card-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+        }
+
+        .card-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2d5a3d;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-description {
+            font-size: 1em;
+            color: #4a7c59;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-card:hover .card-title {
+            color: #1976d2;
+            transition: color 0.3s ease;
+        }
+
+        .footer {
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            color: #6a8f73;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+                margin-bottom: 30px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header p {
+                font-size: 1.1em;
+            }
+
+            .navigation {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .nav-card {
+                padding: 25px 20px;
+            }
+
+            .card-icon {
+                font-size: 2.8em;
+            }
+
+            .card-title {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .subtitle {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span>🌱</span>
+                <span>Здравословен живот</span>
+            </h1>
+            <p>Вашият пътеводител към по-здравословен начин на живот</p>
+            <div class="subtitle">Открийте правилното хранене, следете напредъка си и намерете вдъхновение</div>
+        </div>
+
+        <nav class="navigation">
+            <a href="healthy_nutrition_site.html" class="nav-card">
+                <span class="card-icon">🥗</span>
+                <h2 class="card-title">Здравословно хранене</h2>
+                <p class="card-description">
+                    Открийте препоръчителните храни, дневни планове за хранене и полезни съвети за здравословен живот
+                </p>
+            </a>
+
+            <a href="log.html" class="nav-card">
+                <span class="card-icon">📊</span>
+                <h2 class="card-title">Дневник на храненето</h2>
+                <p class="card-description">
+                    Следете вашето ежедневно хранене, калории и напредък към здравословните ви цели
+                </p>
+            </a>
+
+            <a href="gallery.html" class="nav-card">
+                <span class="card-icon">🖼️</span>
+                <h2 class="card-title">Галерия с рецепти</h2>
+                <p class="card-description">
+                    Разгледайте вдъхновяващи снимки на здравословни ястия и откройте нови рецепти
+                </p>
+            </a>
+        </nav>
+
+        <div class="footer">
+            <p>
+                ✨ Започнете вашето пътешествие към по-здравословен живот днес! ✨
+            </p>
+        </div>
+    </div>
+</body>
+</html>
